@@ -2,4 +2,4 @@
 
 Personal site — cybersecurity GRC, AI governance, and selected work.
 
-Live: after Vercel deploy, this README is updated with the production URL.
+**Live:** [raj-thakkar-portfolio.vercel.app](https://raj-thakkar-portfolio.vercel.app)
