@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Raj Thakkar — cybersecurity governance, risk, and compliance leader extending financial-services control architecture to enterprise AI and Microsoft 365 Copilot.",
+          "Raj Thakkar — AI governance and cybersecurity GRC. Microsoft 365 Copilot, LLM risk, and financial-services control architecture.",
       },
       { name: "theme-color", content: "#F3EFE6" },
     ],

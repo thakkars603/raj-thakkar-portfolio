@@ -10,7 +10,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
         <div className="lg:col-span-8">
           <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted">
-            Cybersecurity · AI Governance · GRC
+            AI Governance · Cybersecurity · GRC
           </p>
           <h1 className="mt-5 font-display text-[clamp(3rem,9vw,6.5rem)] font-medium leading-[0.92] tracking-[-0.03em] text-fg">
             {SITE.name}

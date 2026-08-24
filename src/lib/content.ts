@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Raj Thakkar",
   monogram: "RT",
-  role: "Cybersecurity Governance, Risk & Compliance",
+  role: "AI Governance & Cybersecurity GRC",
   title: "Assistant Vice President, Cybersecurity Compliance",
   org: "Truist Financial Corporation",
   location: "Atlanta, GA",
@@ -9,7 +9,12 @@ export const SITE = {
   phone: "678-488-7270",
   linkedin: "https://linkedin.com/in/rajthakkar603",
   resume: "/raj-thakkar-resume.pdf",
-  lede: "Ten years securing regulated financial systems through control implementation, assessment, and risk-driven engineering — now extending that architecture to enterprise AI.",
+  lede: "Enterprise AI governance from a financial-services control architecture — Microsoft 365 Copilot, LLM risk, and the evidence an examiner will actually ask for.",
+  about: [
+    "Over a decade securing regulated financial-services environments through technical control implementation, security assessment, and risk-driven engineering. Hands-on across NIST CSF and 800-53, ISO 27001, cloud security governance, threat and vulnerability management, and security architecture, with command of FFIEC, GLBA, GDPR, and PCI DSS. That stack is the foundation for AI governance — not a separate career.",
+    "The work sits inside engineering. Controls are embedded in system design, operations, and change-management with platform, infrastructure, cloud, and engineering partners. GRC operations run on Microsoft Power Platform so evidence, assessments, and security reporting scale without a spreadsheet bottleneck — the same collection pattern now used for Copilot and AI-use attestations.",
+    "Current mandate: put Microsoft 365 Copilot and generative AI on the bank’s existing control plane. Use cases are scored for data-protection and LLM risk before they scale. Responsible-use rules name permitted data classes, human-in-the-loop where output is itself a control, and owners of residual risk. Prompt injection, over-privileged Graph connectors, and models allowed to act in a workflow are treated as control gaps. Everything else inherits FFIEC, GLBA, and internal standards. AI is in scope. It does not get a sidecar policy.",
+  ],
 };
 
 export const CERTIFICATIONS = [

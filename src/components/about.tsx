@@ -36,29 +36,9 @@ export function About() {
 
         <div className="lg:col-span-7">
           <div className="space-y-5 text-base leading-relaxed text-fg sm:text-lg">
-            <p>
-              Cybersecurity professional with over a decade securing regulated
-              financial-services environments through technical control
-              implementation, security assessment, and risk-driven engineering.
-              Hands-on across NIST CSF and 800-53, ISO 27001, cloud security
-              governance, threat and vulnerability management, and security
-              architecture, with command of FFIEC, GLBA, GDPR, and PCI DSS.
-            </p>
-            <p>
-              The work is not adjacent to engineering — it sits inside it.
-              Controls are embedded into system design, operations, and
-              change-management with platform, infrastructure, cloud, and
-              engineering partners. GRC operations are automated on Microsoft
-              Power Platform so evidence, assessments, and reporting scale
-              without a spreadsheet bottleneck.
-            </p>
-            <p>
-              That same control architecture is now being extended to
-              generative AI and enterprise Microsoft 365 Copilot adoption:
-              use-case evaluation, data-protection constraints, and
-              responsible-use controls that treat AI as another regulated
-              system, not an exception to the control environment.
-            </p>
+            {SITE.about.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
           </div>
 
           <ol className="mt-12 divide-y divide-border border-y border-border">

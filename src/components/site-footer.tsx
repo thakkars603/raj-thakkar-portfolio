@@ -17,8 +17,8 @@ export function SiteFooter() {
               {SITE.name}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-primary-fg/75">
-              {SITE.role}. Atlanta. Controls first, then the tooling — including
-              the models.
+              {SITE.role}. Atlanta. Copilot on the same control plane as the
+              rest of the bank.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
