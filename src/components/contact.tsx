@@ -94,7 +94,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted">
-            04 — Correspondence
+            05 — Correspondence
           </p>
           <h2 className="mt-3 font-display text-4xl font-medium tracking-[-0.02em] text-fg sm:text-5xl">
             Contact

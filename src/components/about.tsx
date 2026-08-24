@@ -9,7 +9,7 @@ export function About() {
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted">
-            02 — Profile
+            03 — Profile
           </p>
           <h2 className="mt-3 font-display text-4xl font-medium tracking-[-0.02em] text-fg sm:text-5xl">
             About
@@ -75,6 +75,19 @@ export function About() {
                   <p className="text-sm text-muted">
                     {job.org} · {job.place}
                   </p>
+                  <ul className="mt-3 space-y-2">
+                    {(job.dates.includes("Present")
+                      ? job.bullets
+                      : job.bullets.slice(0, 2)
+                    ).map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="text-sm leading-relaxed text-muted"
+                      >
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </li>
             ))}
@@ -88,6 +101,14 @@ export function About() {
               </li>
             ))}
           </ul>
+
+          <a
+            href={SITE.resume}
+            download
+            className="mt-8 inline-flex h-11 items-center rounded-md px-5 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors duration-150 hover:bg-surface"
+          >
+            Download résumé
+          </a>
         </div>
       </div>
     </section>

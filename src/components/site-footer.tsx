@@ -1,8 +1,12 @@
 import { ArrowUp } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { NAV, SITE } from "@/lib/content";
 
 export function SiteFooter() {
   const year = 2026;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const hrefFor = (hash: string) => (isHome ? hash : `/${hash}`);
 
   return (
     <footer className="border-t border-border bg-primary text-primary-fg">
@@ -26,7 +30,7 @@ export function SiteFooter() {
                 {NAV.map((item) => (
                   <li key={item.href}>
                     <a
-                      href={item.href}
+                      href={hrefFor(item.href)}
                       className="text-primary-fg/90 transition-opacity hover:opacity-70"
                     >
                       {item.label}
@@ -60,6 +64,15 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <a
+                    href={SITE.resume}
+                    download
+                    className="text-primary-fg/90 transition-opacity hover:opacity-70"
+                  >
+                    Résumé
+                  </a>
+                </li>
+                <li>
+                  <a
                     href={`tel:${SITE.phone.replace(/-/g, "")}`}
                     className="text-primary-fg/90 transition-opacity hover:opacity-70"
                   >
@@ -85,13 +98,14 @@ export function SiteFooter() {
           <p>
             © {year} {SITE.name}. All rights reserved.
           </p>
-          <a
-            href="#top"
+          <Link
+            to="/"
+            hash="top"
             className="inline-flex h-10 items-center gap-2 text-primary-fg/80 transition-opacity hover:opacity-70"
           >
             Back to top
             <ArrowUp className="size-3.5" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

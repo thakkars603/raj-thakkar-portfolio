@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,8 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("#work");
   const [scrolled, setScrolled] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -16,6 +19,7 @@ export function SiteNav() {
   }, []);
 
   useEffect(() => {
+    if (!isHome) return;
     const ids = NAV.map((item) => item.href.slice(1));
     const observers: IntersectionObserver[] = [];
 
@@ -35,7 +39,7 @@ export function SiteNav() {
     }
 
     return () => observers.forEach((o) => o.disconnect());
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -43,6 +47,8 @@ export function SiteNav() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const hrefFor = (hash: string) => (isHome ? hash : `/${hash}`);
 
   return (
     <header
@@ -54,8 +60,9 @@ export function SiteNav() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.5rem] sm:px-8">
-        <a
-          href="#top"
+        <Link
+          to="/"
+          hash="top"
           className="flex items-center gap-3 text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           onClick={() => setOpen(false)}
         >
@@ -65,17 +72,17 @@ export function SiteNav() {
           <span className="hidden text-sm font-medium tracking-wide sm:block">
             {SITE.name}
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              aria-current={active === item.href ? "true" : undefined}
+              href={hrefFor(item.href)}
+              aria-current={isHome && active === item.href ? "true" : undefined}
               className={cn(
                 "text-sm tracking-wide transition-colors duration-150",
-                active === item.href
+                isHome && active === item.href
                   ? "text-fg"
                   : "text-muted hover:text-fg",
               )}
@@ -84,7 +91,7 @@ export function SiteNav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={hrefFor("#contact")}
             className="inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-fg transition-colors duration-150 hover:bg-fg active:scale-[0.96]"
           >
             Get in touch
@@ -93,7 +100,7 @@ export function SiteNav() {
 
         <button
           type="button"
-          className="relative flex size-11 items-center justify-center rounded-md text-fg md:hidden"
+          className="relative flex size-11 items-center justify-center rounded-md text-fg lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -125,13 +132,13 @@ export function SiteNav() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className="border-t border-border bg-bg md:hidden"
+        className="border-t border-border bg-bg lg:hidden"
       >
         <nav className="flex flex-col px-5 py-4" aria-label="Mobile">
           {NAV.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={hrefFor(item.href)}
               className="flex min-h-12 items-center text-base text-fg"
               onClick={() => setOpen(false)}
             >

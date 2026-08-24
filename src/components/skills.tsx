@@ -9,7 +9,7 @@ export function Skills() {
       <div className="mx-auto max-w-6xl">
         <header className="max-w-xl">
           <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted">
-            03 — Practice
+            04 — Practice
           </p>
           <h2 className="mt-3 font-display text-4xl font-medium tracking-[-0.02em] text-fg sm:text-5xl">
             Capabilities

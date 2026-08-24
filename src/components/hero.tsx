@@ -27,6 +27,13 @@ export function Hero() {
               <ArrowDown className="size-4" />
             </a>
             <a
+              href={SITE.resume}
+              download
+              className="inline-flex h-12 items-center rounded-md px-6 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors duration-150 hover:bg-surface active:scale-[0.96]"
+            >
+              Résumé
+            </a>
+            <a
               href="#contact"
               className="inline-flex h-12 items-center rounded-md px-6 text-sm font-medium text-fg shadow-[var(--shadow-border)] transition-colors duration-150 hover:bg-surface active:scale-[0.96]"
             >

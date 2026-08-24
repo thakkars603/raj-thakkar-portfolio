@@ -1,4 +1,6 @@
 import { useId, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import { CATEGORIES, PROJECTS, type Category, type Project } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { ProjectMark } from "@/components/project-mark";
@@ -111,7 +113,13 @@ function ProjectCard({ project }: { project: Project }) {
           {project.category} · {project.dates}
         </p>
         <h3 className="font-display text-2xl font-medium leading-snug tracking-[-0.02em] text-fg">
-          {project.title}
+          <Link
+            to="/work/$id"
+            params={{ id: project.id }}
+            className="hover:text-primary"
+          >
+            {project.title}
+          </Link>
         </h3>
         <p className="text-sm text-muted">{project.org}</p>
         <p className="text-sm leading-relaxed text-fg md:hidden">
@@ -127,8 +135,15 @@ function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
+        <Link
+          to="/work/$id"
+          params={{ id: project.id }}
+          className="inline-flex h-10 items-center gap-1 text-sm text-fg"
+        >
+          Case notes
+          <ArrowUpRight className="size-3.5" />
+        </Link>
       </div>
     </article>
   );
 }
-
